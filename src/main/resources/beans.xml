@@ -7,9 +7,7 @@
     </constructor-arg>
     <constructor-arg value="Mary" name="name" type="java.lang.String">
     </constructor-arg>
-    <property name="taxId">
-        <value>321</value>
-    </property>
+    <property name="taxId" value="321"></property>
     <property name="address" ref="address"></property>
 </bean>
 
