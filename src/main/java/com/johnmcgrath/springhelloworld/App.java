@@ -23,6 +23,9 @@ public class App
 
         Person person = (Person)context.getBean("person");
         person.speak();
+
+        System.out.println(person);
+
         /**
          * Closes Application context incase there is a memory leak
          */
