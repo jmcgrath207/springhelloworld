@@ -5,12 +5,23 @@
 <bean id="person" class="com.johnmcgrath.springhelloworld.Person">
     <constructor-arg value="777" name="id" type="int">
     </constructor-arg>
-    <constructor-arg value="Mary" name="name" type="String">
+    <constructor-arg value="Mary" name="name" type="java.lang.String">
     </constructor-arg>
     <property name="taxId">
         <value>321</value>
     </property>
-
+    <property name="address" ref="address"></property>
 </bean>
+
+
+
+
+    <bean id="address" class="com.johnmcgrath.springhelloworld.Address">
+        <constructor-arg name="street" value="1 Church Lane"></constructor-arg>
+        <constructor-arg name="postcode" value="9876"></constructor-arg>
+    </bean>
+
+
+
 
 </beans>

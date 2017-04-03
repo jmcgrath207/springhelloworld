@@ -10,6 +10,9 @@ public class Person {
 
     private int taxId;
 
+    /* We are dependcy injects the address object into too the person object */
+    private Address address;
+
     public void setTaxId(int taxId) {
         this.taxId = taxId;
     }
@@ -24,6 +27,10 @@ public class Person {
 
     }
 
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     /* method is used to print out these variables if object is printed to screen */
     @Override
     public String toString() {
@@ -31,6 +38,7 @@ public class Person {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", taxId=" + taxId +
+                ", address=" + address +
                 '}';
     }
 }
