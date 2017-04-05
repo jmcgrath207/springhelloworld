@@ -21,19 +21,19 @@ public class App
          */
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        Person person = (Person)context.getBean("person");
+        Person person1 = (Person)context.getBean("person");
 
-        Address address =(Address)context.getBean("address");
-        person.speak();
+        person1.setTaxId(666);
+        System.out.println(person1);
 
-
-        System.out.println(address);
-        System.out.println(person);
+        Address address2 =(Address)context.getBean("address2");
+        System.out.println(address2);
 
         /**
          * Closes Application context incase there is a memory leak
          */
-        ((ClassPathXmlApplicationContext)context).close();
+
+        /* ((ClassPathXmlApplicationContext)context).close(); */
 
     }
 }

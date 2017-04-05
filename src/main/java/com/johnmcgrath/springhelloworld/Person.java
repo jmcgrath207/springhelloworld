@@ -17,9 +17,24 @@ public class Person {
         this.taxId = taxId;
     }
 
+    public static Person getInstance(int id,String name) {
+        System.out.println("Creating Person using factory method");
+        return new Person(id, name);
+    }
+
     public Person(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    /* on create method, this starts after the constructor is built */
+
+    public void onCreate() {
+        System.out.println("Person created: " + this);
+    }
+
+    public void onDestory()  {
+        System.out.println("Person destoroyed." + this);
     }
 
     public void speak() {
