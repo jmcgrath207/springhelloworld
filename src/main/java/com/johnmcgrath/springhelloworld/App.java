@@ -23,9 +23,11 @@ public class App
 
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        FruitBasket basket = (FruitBasket)context.getBean("basket");
+        Robot robot = (Robot)context.getBean("robot");
 
-        System.out.println(basket);
+
+        robot.speak();
+
 
         /**
          * Closes Application context in case there is a memory leak

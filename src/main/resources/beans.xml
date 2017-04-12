@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" default-init-method="init" default-destroy-method="destory">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-    <bean id="basket" class="com.johnmcgrath.springhelloworld.FruitBasket">
-        <constructor-arg value="John's Basket"></constructor-arg>
-        <constructor-arg>
-            <list>
-                <value>apple</value>
-                <value>banana</value>
-                <value>kiwi</value>
-                <value>pear</value>
-            </list>
-        </constructor-arg>
 
-    </bean>
-
+    <context:component-scan base-package="com.johnmcgrath.springhelloworld"></context:component-scan>
 
 </beans>
