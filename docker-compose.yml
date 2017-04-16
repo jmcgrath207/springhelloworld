@@ -1,0 +1,6 @@
+version: '2'
+services:
+  mysql:
+    restart: always
+    image: mysql:5.7.18
+    env_file: ./mysql/.after_build_env
