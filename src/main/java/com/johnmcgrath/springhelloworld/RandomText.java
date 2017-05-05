@@ -19,7 +19,7 @@ public class RandomText {
             "I want your clothes, boots, and motorcycle."
     };
 
-    public static String getTexts() {
+    public static String getText() {
         Random random = new Random();
 
         return texts[random.nextInt(texts.length)];

@@ -23,10 +23,10 @@ public class App
 
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        Robot robot = (Robot)context.getBean("robot");
+        NewRobot new_robot = (NewRobot)context.getBean("newRobot");
 
+        new_robot.speak();
 
-        robot.speak();
 
 
         /**
