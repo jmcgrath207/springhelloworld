@@ -2,6 +2,8 @@ package com.johnmcgrath.springhelloworld;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
 import java.util.List;
 
@@ -26,12 +28,32 @@ public class App
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         OffersDOA offersDoa = (OffersDOA)context.getBean("offersDoa");
 
-        List<Offer> offers = offersDoa.getOffers();
 
-        for(Offer offer: offers) {
-            System.out.println(offer);
+
+        try {
+
+            List<Offer> offers = offersDoa.getOffers();
+
+            for(Offer offer: offers) {
+                System.out.println(offer);
+
+            }
 
         }
+
+        catch (CannotGetJdbcConnectionException ex) {
+            System.out.println("Can not connect to the Database");
+        }
+
+        catch (DataAccessException ex) {
+
+            System.out.println("Exception: ");
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getClass());
+
+        }
+
+
 
 
 
