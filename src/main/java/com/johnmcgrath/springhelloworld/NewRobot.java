@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
  * Created by john on 4/28/17.
  */
 
-@Component
 public class NewRobot {
 
     private String id = "Default robot";

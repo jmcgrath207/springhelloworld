@@ -3,6 +3,8 @@ package com.johnmcgrath.springhelloworld;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 
 /**
  * Hello world! for spring
@@ -22,10 +24,14 @@ public class App
 
 
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        OffersDOA offersDoa = (OffersDOA)context.getBean("offersDoa");
 
-        NewRobot new_robot = (NewRobot)context.getBean("newRobot");
+        List<Offer> offers = offersDoa.getOffers();
 
-        new_robot.speak();
+        for(Offer offer: offers) {
+            System.out.println(offer);
+
+        }
 
 
 
