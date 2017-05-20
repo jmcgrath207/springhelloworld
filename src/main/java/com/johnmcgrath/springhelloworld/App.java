@@ -5,6 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,33 +29,32 @@ public class App
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         OffersDOA offersDoa = (OffersDOA)context.getBean("offersDoa");
 
+         Offer offer1 =  new Offer (89,"John","something@stest.com","yyyyyy");
+
+         offersDoa.update(offer1);
 
 
-        try {
+         List<Offer> offers = new ArrayList<Offer>();
 
-            List<Offer> offers = offersDoa.getOffers();
+         offers.add(new Offer("Dave","something@gmail.com","asdfasfdsad"));
+        offers.add(new Offer("Jeff","something@gmail.com","asdfasfdsad"));
 
-            for(Offer offer: offers) {
-                System.out.println(offer);
+        int[] rvals = offersDoa.create(offers);
 
-            }
-
-        }
-
-        catch (CannotGetJdbcConnectionException ex) {
-            System.out.println("Can not connect to the Database");
-        }
-
-        catch (DataAccessException ex) {
-
-            System.out.println("Exception: ");
-            System.out.println(ex.getMessage());
-            System.out.println(ex.getClass());
-
+        for(int value:rvals) {
+            System.out.println("Updated " + value + " rows.");
         }
 
 
 
+
+
+
+        Offer a = offersDoa.getOffer( 3);
+
+        System.out.println(a);
+
+        offersDoa.delete(88);
 
 
         /**
